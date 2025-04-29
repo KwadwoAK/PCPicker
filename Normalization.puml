@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+ entity "Before Normalization: USER" {
+        int UserID PK
+        string Username
+        string Email
+        string Password
+        int MotherboardID FK
+        int CPUID FK
+        int GPUID FK
+        int RAMID FK
+        int StorageID FK
+        int PSU_ID FK
+        int CaseID FK
+        string BuildName
+        decimal TotalPrice
+        date CreatedDate
+    }
+
+    entity "After Normalization: USER" {
+        int UserID PK
+        string Username
+        string Email
+        string Password
+        int BuildID FK "nullable"
+    }
+
+    entity "After Normalization: BUILD" {
+        int BuildID PK
+        int UserID FK
+        int MotherboardID FK
+        int CPUID FK
+        int GPUID FK
+        int RAMID FK
+        int StorageID FK
+        int PSU_ID FK
+        int CaseID FK
+        string Name
+        decimal TotalPrice
+        date CreatedDate
+    }
+
+    "Before Normalization: USER" ||--o{ "After Normalization: USER" : "normalized to"
+    "Before Normalization: USER" ||--o{ "After Normalization: BUILD" : "component data moved to"
+    "After Normalization: USER" ||--o{ "After Normalization: BUILD" : "can have many"
+@enduml

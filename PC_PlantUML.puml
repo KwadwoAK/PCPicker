@@ -1,0 +1,124 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+entity "User" as User {
+  * UserID : string <<PK>>
+  --
+  Username : string
+  Password : string
+  Email : string
+  BuildID: string <<FK>> <<nullable>>
+}
+
+entity "GPU" as GPU {
+  * GPUID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  GPU_brand : string
+  VRAM : int
+  PCIE : int
+  Price : int
+  ReleaseDate : date
+
+}
+
+entity "CPU" {
+  * CPUID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  Cores : int
+  Threads : int
+  BaseClockSpeed : float
+  BoostClockSpeed : float
+  SocketType : string
+  Price : int
+  ReleaseDate : date
+}
+
+entity "MOTHERBOARD" as Motherboard {
+  * MotherboardID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  FormFactor : string
+  SocketType : string
+  Chipset : string
+  Price : decimal
+  ReleaseDate : date
+}
+
+entity "RAM" {
+  * RAMID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  Capacity : int
+  Type : string
+  Speed : int
+  Price : int
+  ReleaseDate : date
+}
+
+entity "Storage" as Storage {
+  * StorageID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  Type : string
+  Capacity : int
+  speed : int
+  Price : int
+  ReleaseDate : date
+}
+
+entity "Power Supply" as PowerSupply {
+  * PowerSupplyID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  Wattage : int
+  EfficiencyRating : string
+  Price : int
+  Modularity : string
+  ReleaseDate : date
+}
+
+entity "Case" as Case {
+  * CaseID : string <<PK>>
+  --
+  Name : string
+  Manufacturer : string
+  FormFactor : string
+  Color : string
+  Price : decimal
+  ReleaseDate : date
+}
+
+entity "BUILD" as Build {
+  * BuildID : string <<PK>>
+  --
+  UserID : string <<FK>>
+  GPU_ID : string <<FK>>
+  CPU_ID : string <<FK>>
+  Motherboard_ID : string <<FK>>
+  RAM_ID : string <<FK>>
+  Storage_ID : string <<FK>>
+  PowerSupply_ID : string <<FK>>
+  Case_ID : string <<FK>>
+
+}
+
+' Relationships
+User ||--|{ Build : "Creates"
+Build }|--|| GPU : "Includes"
+Build }|--|| CPU : "Includes"
+Build }|--|| Motherboard : "Includes"
+Build }|--|| RAM : "Includes"
+Build }|--|| Storage : "Includes"
+Build }|--|| PowerSupply : "Includes"
+Build }|--|| Case : "Includes"
+
+
+@enduml

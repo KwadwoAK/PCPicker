@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}View Build{% endblock %}
+
+{% block content %}
+    <h1>Your Builds</h1>
+    <a href="{{ url_for('views.home') }}" class="btn btn-primary mb-3">Back to Home</a>
+
+    {% if builds %}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>GPU</th>
+                        <th>CPU</th>
+                        <th>Motherboard</th>
+                        <th>RAM</th>
+                        <th>Storage</th>
+                        <th>PSU</th>
+                        <th>Case</th>
+                        <th>Total Cost</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for build in builds %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ build.gpu.gpu_name }}</td>
+                            <td>{{ build.cpu.cpu_name }}</td>
+                            <td>{{ build.motherboard.motherboard_name }}</td>
+                            <td>{{ build.ram.ram_name }}</td>
+                            <td>{{ build.storage.storage_name }}</td>
+                            <td>{{ build.psu.psu_name }}</td>
+                            <td>{{ build.case.case_name }}</td>
+                            <td>${{ build.total_cost }}</td>
+                            <td>
+                                <a href="{{ url_for('views.edit_build', build_id=build.BuildID) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form method="POST" action="{{ url_for('views.delete_build', build_id=build.BuildID) }}" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>You have no builds yet. <a href="{{ url_for('views.create_build') }}">Create one now!</a></p>
+    {% endif %}
+{% endblock %}

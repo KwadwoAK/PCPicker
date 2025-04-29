@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Edit Build{% endblock %}
+
+{% block content %}
+    <h1>Edit Build</h1>
+    <form method="POST" action="{{ url_for('views.edit_build', build_id=build.BuildID) }}">
+        <!-- GPU Selection -->
+        <div class="form-group">
+            <label for="gpu">Select GPU:</label>
+            <select class="form-control" id="gpu" name="gpu_id" required>
+                {% for gpu in gpus %}
+                    <option value="{{ gpu.gpu_id }}" {% if gpu.gpu_id == build.gpu_id %}selected{% endif %}>
+                        {{ gpu.gpu_name }} - ${{ gpu.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- CPU Selection -->
+        <div class="form-group">
+            <label for="cpu">Select CPU:</label>
+            <select class="form-control" id="cpu" name="cpu_id" required>
+                {% for cpu in cpus %}
+                    <option value="{{ cpu.cpu_id }}" {% if cpu.cpu_id == build.cpu_id %}selected{% endif %}>
+                        {{ cpu.cpu_name }} - ${{ cpu.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Motherboard Selection -->
+        <div class="form-group">
+            <label for="motherboard">Select Motherboard:</label>
+            <select class="form-control" id="motherboard" name="motherboard_id" required>
+                {% for motherboard in motherboards %}
+                    <option value="{{ motherboard.motherboard_id }}" {% if motherboard.motherboard_id == build.motherboard_id %}selected{% endif %}>
+                        {{ motherboard.motherboard_name }} - ${{ motherboard.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- RAM Selection -->
+        <div class="form-group">
+            <label for="ram">Select RAM:</label>
+            <select class="form-control" id="ram" name="ram_id" required>
+                {% for ram in rams %}
+                    <option value="{{ ram.ram_id }}" {% if ram.ram_id == build.ram_id %}selected{% endif %}>
+                        {{ ram.ram_name }} - ${{ ram.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- PSU Selection -->
+        <div class="form-group">
+            <label for="psu">Select PSU:</label>
+            <select class="form-control" id="psu" name="psu_id" required>
+                {% for psu in psus %}
+                    <option value="{{ psu.psu_id }}" {% if psu.psu_id == build.psu_id %}selected{% endif %}>
+                        {{ psu.psu_name }} - ${{ psu.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Storage Selection -->
+        <div class="form-group">
+            <label for="storage">Select Storage:</label>
+            <select class="form-control" id="storage" name="storage_id" required>
+                {% for storage in storages %}
+                    <option value="{{ storage.storage_id }}" {% if storage.storage_id == build.storage_id %}selected{% endif %}>
+                        {{ storage.storage_name }} - ${{ storage.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Case Selection -->
+        <div class="form-group">
+            <label for="case">Select Case:</label>
+            <select class="form-control" id="case" name="case_id" required>
+                {% for case in cases %}
+                    <option value="{{ case.case_id }}" {% if case.case_id == build.case_id %}selected{% endif %}>
+                        {{ case.case_name }} - ${{ case.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Repeat for other components (Motherboard, RAM, PSU, Storage, Case) -->
+        <!-- Example for RAM -->
+        <div class="form-group">
+            <label for="ram">Select RAM:</label>
+            <select class="form-control" id="ram" name="ram_id" required>
+                {% for ram in rams %}
+                    <option value="{{ ram.ram_id }}" {% if ram.ram_id == build.ram_id %}selected{% endif %}>
+                        {{ ram.ram_name }} - ${{ ram.msrp }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+        <a href="{{ url_for('views.view_builds') }}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+{% endblock %}

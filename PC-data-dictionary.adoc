@@ -1,0 +1,132 @@
+= PC Part Picker Data Dictionary
+
+The PC Part Picker application allows users to select and configure computer parts for building custom PCs. Below is the data dictionary for the entities involved in this system.
+
+== Entities
+1. **USER (Strong)**
+   - Description: Represents a registered user of the PC Part Picker application.
+   - Attributes:
+     * UserID (unique identifier)
+     * Username
+     * Email
+     * Password
+     * BuildID (foreign key to BUILD, nullable)
+       - This allows a user to have a saved build configuration.
+
+
+2. **GPU (Strong)**
+    - Description: Graphics Processing Unit, a key component for rendering graphics in a computer.
+    - Attributes:
+      * GPUID (unique identifier)
+      * Name
+      * Manufacturer (e.g., MSI, ASUS, EVGA)
+      * GPU_brand (e.g., NVIDIA, AMD, Intel)
+      * VRAM (in GB)
+      * VRAM Type (e.g., GDDR5, GDDR6)
+      * Price (MSRP)
+      * PCIe (e.g., PCIe 1.0, PCIe 4.0, PCIe 5.0)
+      * Release Date (e.g., 2020-09-17)
+
+3. **CPU (Strong)**
+    - Description: Central Processing Unit, the primary processor of a computer.
+    - Attributes:
+      * CPUID (unique identifier)
+      * Name
+      * Manufacturer (e.g., Intel, AMD)
+      * Cores
+      * Threads
+      * Base Clock Speed (in GHz)
+      * Boost Clock Speed (in GHz)
+      * Socket Type (e.g., LGA1200, AM4)
+      * TDP (Thermal Design Power, in Watts)
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+
+4. **MOTHERBOARD (Strong)**
+    - Description: The main circuit board that connects all components of a computer.
+    - Attributes:
+      * MotherboardID (unique identifier)
+      * Name
+      * Manufacturer (e.g., ASUS, Gigabyte, MSI)
+      * Form Factor (e.g., ATX, Micro-ATX, Mini-ITX)
+      * Socket Type (e.g., LGA1200, AM4)
+      * Chipset (e.g., Z490, B550)
+      * Ram Compatibility (e.g., DDR4, DDR5)
+      * Ram Slots (number of RAM slots)
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+5. **RAM (Strong)**
+    - Description: Random Access Memory, used for temporary data storage while the computer is running.
+    - Attributes:
+      * RAMID (unique identifier)
+      * Name
+      * Manufacturer (e.g., Corsair, G.Skill, Kingston)
+      * Capacity (in GB)
+      * Type (e.g., DDR4, DDR5)
+      * Speed (in MHz)
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+6. **STORAGE (Strong)**
+    - Description: Storage devices used to store data permanently.
+    - Attributes:
+      * StorageID (unique identifier)
+      * Name
+      * Manufacturer (e.g., Samsung, Western Digital, Seagate)
+      * Type (e.g., SSD, HDD, NVMe)
+      * Capacity (in GB or TB)
+      * speed (in MB/s)
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+7. **POWER_SUPPLY (Strong)**
+    - Description: Power supply unit that provides power to all components of the computer.
+    - Attributes:
+      * PSU_ID (unique identifier)
+      * Name
+      * Manufacturer (e.g., Corsair, EVGA, Seasonic)
+      * Wattage (in Watts)
+      * Efficiency Rating (e.g., 80 Plus Bronze, Gold)
+      * Modular
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+8. **CASE (Strong)**
+    - Description: The enclosure that houses all the components of the computer.
+    - Attributes:
+      * CaseID (unique identifier)
+      * Name
+      * Manufacturer (e.g., NZXT, Fractal Design, Cooler Master)
+      * Form Factor (e.g., ATX, Micro-ATX, Mini-ITX)
+      * Color
+      * Price (MSRP)
+      * Release Date (e.g., 2020-09-17)
+
+9. **BUILD (weak)**
+    - Description: Represents a complete build configuration created by a user.
+    - Attributes:
+      * BuildID (unique identifier)
+      * UserID (foreign key to USER)
+      * MotherboardID (foreign key to MOTHERBOARD)
+      * CPUID (foreign key to CPU)
+      * GPUID (foreign key to GPU)
+      * RAMID (foreign key to RAM)
+      * StorageID (foreign key to STORAGE)
+      * PSU_ID (foreign key to POWER_SUPPLY)
+      * CaseID (foreign key to CASE)
+      * Name (user-defined name for the build)
+      * TotalPrice (calculated total price of all components)
+      * CreatedDate
+
+
+== Relationships
+1. **USER to BUILD**
+   - Description: A user can have one or more builds, but each build belongs to exactly one user.
+   - Cardinality: One-to-many (one user can have multiple builds).
+
+2. **BUILD to MOTHERBOARD, CPU, GPU, RAM, STORAGE, POWER_SUPPLY, CASE**
+   - Description: A build consists of one motherboard, one CPU, one GPU, one RAM, one storage device, one power supply, and one case.
+   - Cardinality: One-to-one (each build references exactly one of each component type).
+

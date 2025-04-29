@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Create Build{% endblock %}
+
+{% block content %}
+    <h1>Create Your Build</h1>
+    <form method="POST" action="/create-build">
+        <!-- GPU Selection -->
+        <div class="form-group">
+            <label for="gpu">Select GPU:</label>
+            <select class="form-control" id="gpu" name="gpu_id" required>
+                {% for gpu in gpus %}
+                    <option value="{{ gpu.gpu_id }}">{{ gpu.gpu_name }} - ${{ gpu.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- CPU Selection -->
+        <div class="form-group">
+            <label for="cpu">Select CPU:</label>
+            <select class="form-control" id="cpu" name="cpu_id" required>
+                {% for cpu in cpus %}
+                    <option value="{{ cpu.cpu_id }}">{{ cpu.cpu_name }} - {{ cpu.manufacturer }} ({{ cpu.socket_type }}) - ${{ cpu.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Motherboard Selection -->
+        <div class="form-group">
+            <label for="motherboard">Select Motherboard:</label>
+            <select class="form-control" id="motherboard" name="motherboard_id" required>
+                {% for motherboard in motherboards %}
+                    <option value="{{ motherboard.motherboard_id }}">{{ motherboard.motherboard_name }}({{ motherboard.socket_type }}) {{ motherboard.form_factor }} - ${{ motherboard.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- RAM Selection -->
+        <div class="form-group">
+            <label for="ram">Select RAM:</label>
+            <select class="form-control" id="ram" name="ram_id" required>
+                {% for ram in rams %}
+                    <option value="{{ ram.ram_id }}">{{ ram.ram_name }} {{ ram.capacity }}GB - ${{ ram.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- PSU Selection -->
+        <div class="form-group">
+            <label for="psu">Select PSU:</label>
+            <select class="form-control" id="psu" name="psu_id" required>
+                {% for psu in psus %}
+                    <option value="{{ psu.psu_id }}">{{ psu.psu_name }} - ${{ psu.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Storage Selection -->
+        <div class="form-group">
+            <label for="storage">Select Storage:</label>
+            <select class="form-control" id="storage" name="storage_id" required>
+                {% for storage in storages %}
+                    <option value="{{ storage.storage_id }}">{{ storage.storage_name }} {{ storage.capacity }} ({{ storage.storage_type }}) - ${{ storage.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Case Selection -->
+        <div class="form-group">
+            <label for="case">Select Case:</label>
+            <select class="form-control" id="case" name="case_id" required>
+                {% for case in cases %}
+                    <option value="{{ case.case_id }}">{{ case.case_name }} ({{ case.form_factor }}) - ${{ case.msrp }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success mt-3">Save Build</button>
+    </form>
+{% endblock %}

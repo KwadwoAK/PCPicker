@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <div class="mt-4">
+        <a href="/create-build" class="btn btn-primary">Create Build</a>
+        <a href="/view-builds" class="btn btn-secondary">View Build</a>
+    </div>
+{% endblock %}
