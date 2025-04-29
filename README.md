@@ -48,3 +48,8 @@ pip install flask_sqlalchemy
 pip install flask_login
 ```
 To run the program, got main.py and run the file. the flask server should start running on port 5000, click on the link to open the web application in your browser.
+
+## Navigation:
+when you first open the application, you will be greeted with the login screen. If you do not have an account, you can create one by clicking on the "Register" button. Once you are logged in, you will be able to see your builds and add new parts to your builds. You can also edit and delete your builds as needed.
+
+
