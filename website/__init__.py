@@ -2250,18 +2250,566 @@ def seed_database(app):
                  storage197, storage198, storage199, storage200])
 
         if not Psu.query.first():  # Check if the Psu table is empty
-            psu1 = Psu(psu_name="Corsair RM750x", manufacturer="Corsair", wattage=750, efficiency_rating="80+ Gold",
-                       modular="Fully", msrp=129, ReleaseDate=date(2020,5,1))
-            psu2 = Psu(psu_name="EVGA SuperNOVA 650 G5", manufacturer="EVGA", wattage=650, efficiency_rating="80+ Gold",
-                       modular="Fully", msrp=119, ReleaseDate=date(2019,8,15))
-            db.session.add_all([psu1, psu2])
+            # Corsair PSUs
+            psu1 = Psu(psu_name="Corsair RM550x", manufacturer="Corsair", wattage=550, efficiency_rating="80+ Gold",
+                       modular="Fully", msrp=109, ReleaseDate=date(2021, 6, 1))
+            psu2 = Psu(psu_name="Corsair RM650x", manufacturer="Corsair", wattage=650, efficiency_rating="80+ Gold",
+                       modular="Fully", msrp=119, ReleaseDate=date(2021, 6, 1))
+            psu3 = Psu(psu_name="Corsair RM750x", manufacturer="Corsair", wattage=750, efficiency_rating="80+ Gold",
+                       modular="Fully", msrp=129, ReleaseDate=date(2020, 5, 1))
+            psu4 = Psu(psu_name="Corsair RM850x", manufacturer="Corsair", wattage=850, efficiency_rating="80+ Gold",
+                       modular="Fully", msrp=149, ReleaseDate=date(2020, 5, 1))
+            psu5 = Psu(psu_name="Corsair AX850", manufacturer="Corsair", wattage=850, efficiency_rating="80+ Titanium",
+                       modular="Fully", msrp=249, ReleaseDate=date(2019, 1, 15))
+            psu6 = Psu(psu_name="Corsair AX1000", manufacturer="Corsair", wattage=1000,
+                       efficiency_rating="80+ Titanium", modular="Fully", msrp=279, ReleaseDate=date(2019, 1, 15))
+            psu7 = Psu(psu_name="Corsair CX550M", manufacturer="Corsair", wattage=550, efficiency_rating="80+ Bronze",
+                       modular="Semi", msrp=65, ReleaseDate=date(2019, 3, 1))
+            psu8 = Psu(psu_name="Corsair CX650M", manufacturer="Corsair", wattage=650, efficiency_rating="80+ Bronze",
+                       modular="Semi", msrp=75, ReleaseDate=date(2019, 3, 1))
+            psu9 = Psu(psu_name="Corsair CX750M", manufacturer="Corsair", wattage=750, efficiency_rating="80+ Bronze",
+                       modular="Semi", msrp=85, ReleaseDate=date(2019, 3, 1))
+            psu10 = Psu(psu_name="Corsair CV550", manufacturer="Corsair", wattage=550, efficiency_rating="80+ Bronze",
+                        modular="No", msrp=60, ReleaseDate=date(2020, 2, 1))
+            psu11 = Psu(psu_name="Corsair CV650", manufacturer="Corsair", wattage=650, efficiency_rating="80+ Bronze",
+                        modular="No", msrp=70, ReleaseDate=date(2020, 2, 1))
+            psu12 = Psu(psu_name="Corsair SF750 Platinum", manufacturer="Corsair", wattage=750,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=179, ReleaseDate=date(2019, 1, 7))
+            psu13 = Psu(psu_name="Corsair Vengeance 650M", manufacturer="Corsair", wattage=650,
+                        efficiency_rating="80+ Silver", modular="Semi", msrp=90, ReleaseDate=date(2019, 8, 1))
+            psu14 = Psu(psu_name="Corsair Vengeance 750M", manufacturer="Corsair", wattage=750,
+                        efficiency_rating="80+ Silver", modular="Semi", msrp=100, ReleaseDate=date(2019, 8, 1))
+            psu15 = Psu(psu_name="Corsair TX750M", manufacturer="Corsair", wattage=750, efficiency_rating="80+ Gold",
+                        modular="Semi", msrp=100, ReleaseDate=date(2019, 9, 1))
+
+            # EVGA PSUs
+            psu16 = Psu(psu_name="EVGA SuperNOVA 550 BP", manufacturer="EVGA", wattage=550,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=60, ReleaseDate=date(2020, 11, 18))
+            psu17 = Psu(psu_name="EVGA SuperNOVA 650 BP", manufacturer="EVGA", wattage=650,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=75, ReleaseDate=date(2020, 11, 18))
+            psu18 = Psu(psu_name="EVGA SuperNOVA 750 BP", manufacturer="EVGA", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=90, ReleaseDate=date(2020, 11, 18))
+            psu19 = Psu(psu_name="EVGA SuperNOVA 650 G5", manufacturer="EVGA", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=129, ReleaseDate=date(2019, 7, 9))
+            psu20 = Psu(psu_name="EVGA SuperNOVA 750 G5", manufacturer="EVGA", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=139, ReleaseDate=date(2019, 7, 9))
+            psu21 = Psu(psu_name="EVGA SuperNOVA 850 G5", manufacturer="EVGA", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=149, ReleaseDate=date(2019, 7, 9))
+            psu22 = Psu(psu_name="EVGA SuperNOVA 1000 G5", manufacturer="EVGA", wattage=1000,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=179, ReleaseDate=date(2019, 7, 9))
+            psu23 = Psu(psu_name="EVGA SuperNOVA 750 G6", manufacturer="EVGA", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=139, ReleaseDate=date(2021, 5, 5))
+            psu24 = Psu(psu_name="EVGA SuperNOVA 850 G6", manufacturer="EVGA", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=149, ReleaseDate=date(2021, 5, 5))
+            psu25 = Psu(psu_name="EVGA SuperNOVA 1000 G6", manufacturer="EVGA", wattage=1000,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=179, ReleaseDate=date(2021, 5, 5))
+            psu26 = Psu(psu_name="EVGA SuperNOVA 750 GT", manufacturer="EVGA", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=129, ReleaseDate=date(2021, 8, 17))
+            psu27 = Psu(psu_name="EVGA SuperNOVA 850 GT", manufacturer="EVGA", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=149, ReleaseDate=date(2021, 3, 18))
+            psu28 = Psu(psu_name="EVGA SuperNOVA 1000 GT", manufacturer="EVGA", wattage=1000,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=179, ReleaseDate=date(2021, 8, 17))
+            psu29 = Psu(psu_name="EVGA SuperNOVA 850 P6", manufacturer="EVGA", wattage=850,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=179, ReleaseDate=date(2021, 7, 15))
+            psu30 = Psu(psu_name="EVGA SuperNOVA 1000 P6", manufacturer="EVGA", wattage=1000,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=219, ReleaseDate=date(2021, 7, 15))
+
+            # Seasonic PSUs
+            psu31 = Psu(psu_name="Seasonic S12III 550", manufacturer="Seasonic", wattage=550,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=60, ReleaseDate=date(2019, 3, 15))
+            psu32 = Psu(psu_name="Seasonic CORE GM 650", manufacturer="Seasonic", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Semi", msrp=75, ReleaseDate=date(2021, 1, 27))
+            psu33 = Psu(psu_name="Seasonic CORE GX 550", manufacturer="Seasonic", wattage=550,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=70, ReleaseDate=date(2021, 1, 27))
+            psu34 = Psu(psu_name="Seasonic CORE GC 650", manufacturer="Seasonic", wattage=650,
+                        efficiency_rating="80+ Gold", modular="No", msrp=65, ReleaseDate=date(2019, 7, 1))
+            psu35 = Psu(psu_name="Seasonic FOCUS GX 750", manufacturer="Seasonic", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=120, ReleaseDate=date(2019, 6, 1))
+            psu36 = Psu(psu_name="Seasonic FOCUS GM 650", manufacturer="Seasonic", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Semi", msrp=100, ReleaseDate=date(2019, 6, 1))
+            psu37 = Psu(psu_name="Seasonic FOCUS PX 850", manufacturer="Seasonic", wattage=850,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=150, ReleaseDate=date(2019, 6, 1))
+            psu38 = Psu(psu_name="Seasonic FOCUS SGX 650", manufacturer="Seasonic", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 6, 1))
+            psu39 = Psu(psu_name="Seasonic PRIME GX 750", manufacturer="Seasonic", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=160, ReleaseDate=date(2019, 8, 1))
+            psu40 = Psu(psu_name="Seasonic PRIME PX 1000", manufacturer="Seasonic", wattage=1000,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=220, ReleaseDate=date(2019, 8, 1))
+            psu41 = Psu(psu_name="Seasonic PRIME TX 850", manufacturer="Seasonic", wattage=850,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=230, ReleaseDate=date(2019, 8, 1))
+            psu42 = Psu(psu_name="Seasonic PRIME TX 1000", manufacturer="Seasonic", wattage=1000,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=280, ReleaseDate=date(2020, 5, 1))
+
+            # Cooler Master PSUs
+            psu43 = Psu(psu_name="Cooler Master MWE Bronze 550 V2", manufacturer="Cooler Master", wattage=550,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=60, ReleaseDate=date(2020, 6, 1))
+            psu44 = Psu(psu_name="Cooler Master MWE Bronze 650 V2", manufacturer="Cooler Master", wattage=650,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=70, ReleaseDate=date(2020, 6, 1))
+            psu45 = Psu(psu_name="Cooler Master MWE Bronze 750 V2", manufacturer="Cooler Master", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=80, ReleaseDate=date(2020, 6, 1))
+            psu46 = Psu(psu_name="Cooler Master MWE Gold 650 V2", manufacturer="Cooler Master", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=90, ReleaseDate=date(2020, 7, 1))
+            psu47 = Psu(psu_name="Cooler Master MWE Gold 750 V2", manufacturer="Cooler Master", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=110, ReleaseDate=date(2020, 7, 1))
+            psu48 = Psu(psu_name="Cooler Master MWE Gold 850 V2", manufacturer="Cooler Master", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2020, 7, 1))
+            psu49 = Psu(psu_name="Cooler Master V650 SFX Gold", manufacturer="Cooler Master", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=129, ReleaseDate=date(2021, 1, 1))
+            psu50 = Psu(psu_name="Cooler Master V750 Gold V2", manufacturer="Cooler Master", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=139, ReleaseDate=date(2020, 9, 1))
+            psu51 = Psu(psu_name="Cooler Master V850 Gold V2", manufacturer="Cooler Master", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=159, ReleaseDate=date(2020, 9, 1))
+            psu52 = Psu(psu_name="Cooler Master V850 Platinum", manufacturer="Cooler Master", wattage=850,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=199, ReleaseDate=date(2019, 11, 1))
+            psu53 = Psu(psu_name="Cooler Master V1000 Platinum", manufacturer="Cooler Master", wattage=1000,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=239, ReleaseDate=date(2020, 1, 15))
+            psu54 = Psu(psu_name="Cooler Master MasterWatt 750", manufacturer="Cooler Master", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="Semi", msrp=85, ReleaseDate=date(2019, 9, 1))
+
+            # Be Quiet! PSUs
+            psu55 = Psu(psu_name="Be Quiet! Pure Power 11 500W", manufacturer="Be Quiet!", wattage=500,
+                        efficiency_rating="80+ Gold", modular="No", msrp=80, ReleaseDate=date(2019, 1, 10))
+            psu56 = Psu(psu_name="Be Quiet! Pure Power 11 CM 700W", manufacturer="Be Quiet!", wattage=700,
+                        efficiency_rating="80+ Gold", modular="Semi", msrp=120, ReleaseDate=date(2019, 1, 10))
+            psu57 = Psu(psu_name="Be Quiet! Pure Power 11 FM 750W", manufacturer="Be Quiet!", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2021, 8, 1))
+            psu58 = Psu(psu_name="Be Quiet! Straight Power 11 650W", manufacturer="Be Quiet!", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 7, 1))
+            psu59 = Psu(psu_name="Be Quiet! Straight Power 11 Platinum 1200W", manufacturer="Be Quiet!", wattage=1200,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=250, ReleaseDate=date(2020, 3, 1))
+            psu60 = Psu(psu_name="Be Quiet! Dark Power 12 850W", manufacturer="Be Quiet!", wattage=850,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=239, ReleaseDate=date(2021, 3, 9))
+            psu61 = Psu(psu_name="Be Quiet! Dark Power 12 1000W", manufacturer="Be Quiet!", wattage=1000,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=279, ReleaseDate=date(2021, 3, 9))
+            psu62 = Psu(psu_name="Be Quiet! Dark Power Pro 12 1200W", manufacturer="Be Quiet!", wattage=1200,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=399, ReleaseDate=date(2020, 9, 8))
+            psu63 = Psu(psu_name="Be Quiet! System Power 9 600W", manufacturer="Be Quiet!", wattage=600,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=70, ReleaseDate=date(2019, 2, 1))
+
+            # ASUS PSUs
+            psu64 = Psu(psu_name="ASUS ROG Strix 650W Gold", manufacturer="ASUS", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=120, ReleaseDate=date(2020, 8, 1))
+            psu65 = Psu(psu_name="ASUS ROG Strix 750W Gold", manufacturer="ASUS", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 10, 1))
+            psu66 = Psu(psu_name="ASUS ROG Thor 850W Platinum", manufacturer="ASUS", wattage=850,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=200, ReleaseDate=date(2019, 1, 10))
+            psu67 = Psu(psu_name="ASUS ROG Thor 1200W Platinum", manufacturer="ASUS", wattage=1200,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=250, ReleaseDate=date(2019, 1, 10))
+            psu68 = Psu(psu_name="ASUS TUF Gaming 650B", manufacturer="ASUS", wattage=650,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=80, ReleaseDate=date(2020, 7, 1))
+            psu69 = Psu(psu_name="ASUS TUF Gaming 750B", manufacturer="ASUS", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=90, ReleaseDate=date(2020, 7, 1))
+
+            # Gigabyte PSUs
+            psu70 = Psu(psu_name="Gigabyte GP-P550B", manufacturer="Gigabyte", wattage=550,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=50, ReleaseDate=date(2019, 6, 1))
+            psu71 = Psu(psu_name="Gigabyte GP-P650B", manufacturer="Gigabyte", wattage=650,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=60, ReleaseDate=date(2019, 6, 1))
+            psu72 = Psu(psu_name="Gigabyte GP-P750B", manufacturer="Gigabyte", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=80, ReleaseDate=date(2019, 6, 1))
+            psu73 = Psu(psu_name="Gigabyte GP-P750GM", manufacturer="Gigabyte", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=99, ReleaseDate=date(2020, 7, 1))
+            psu74 = Psu(psu_name="Gigabyte GP-P850GM", manufacturer="Gigabyte", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=119, ReleaseDate=date(2020, 7, 1))
+
+            # NZXT PSUs
+            psu75 = Psu(psu_name="NZXT C650 Gold", manufacturer="NZXT", wattage=650, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=110, ReleaseDate=date(2020, 2, 1))
+            psu76 = Psu(psu_name="NZXT C750 Gold", manufacturer="NZXT", wattage=750, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=130, ReleaseDate=date(2020, 2, 1))
+            psu77 = Psu(psu_name="NZXT C850 Gold", manufacturer="NZXT", wattage=850, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=150, ReleaseDate=date(2020, 2, 1))
+            psu78 = Psu(psu_name="NZXT C550 Bronze", manufacturer="NZXT", wattage=550, efficiency_rating="80+ Bronze",
+                        modular="Semi", msrp=80, ReleaseDate=date(2021, 8, 1))
+            psu79 = Psu(psu_name="NZXT C650 Bronze", manufacturer="NZXT", wattage=650, efficiency_rating="80+ Bronze",
+                        modular="Semi", msrp=90, ReleaseDate=date(2021, 8, 1))
+            psu80 = Psu(psu_name="NZXT C750 Bronze", manufacturer="NZXT", wattage=750, efficiency_rating="80+ Bronze",
+                        modular="Semi", msrp=100, ReleaseDate=date(2021, 8, 1))
+
+            # MSI PSUs
+            psu81 = Psu(psu_name="MSI MAG A550BN", manufacturer="MSI", wattage=550, efficiency_rating="80+ Bronze",
+                        modular="No", msrp=60, ReleaseDate=date(2020, 7, 1))
+            psu82 = Psu(psu_name="MSI MAG A650BN", manufacturer="MSI", wattage=650, efficiency_rating="80+ Bronze",
+                        modular="No", msrp=70, ReleaseDate=date(2020, 7, 1))
+            psu83 = Psu(psu_name="MSI MPG A650GF", manufacturer="MSI", wattage=650, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=100, ReleaseDate=date(2020, 9, 1))
+            psu84 = Psu(psu_name="MSI MPG A750GF", manufacturer="MSI", wattage=750, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=120, ReleaseDate=date(2020, 9, 1))
+            psu85 = Psu(psu_name="MSI MPG A850GF", manufacturer="MSI", wattage=850, efficiency_rating="80+ Gold",
+                        modular="Fully", msrp=140, ReleaseDate=date(2020, 9, 1))
+
+            # Thermaltake PSUs
+            psu86 = Psu(psu_name="Thermaltake Smart BX1 650W", manufacturer="Thermaltake", wattage=650,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=70, ReleaseDate=date(2019, 3, 1))
+            psu87 = Psu(psu_name="Thermaltake Smart BX1 750W", manufacturer="Thermaltake", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=80, ReleaseDate=date(2019, 3, 1))
+            psu88 = Psu(psu_name="Thermaltake Smart BM2 750W", manufacturer="Thermaltake", wattage=750,
+                        efficiency_rating="80+ Bronze", modular="Semi", msrp=85, ReleaseDate=date(2020, 5, 1))
+            psu89 = Psu(psu_name="Thermaltake Toughpower GF1 650W", manufacturer="Thermaltake", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=120, ReleaseDate=date(2019, 7, 1))
+            psu90 = Psu(psu_name="Thermaltake Toughpower GF1 750W", manufacturer="Thermaltake", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 7, 1))
+            psu91 = Psu(psu_name="Thermaltake Toughpower GF1 850W", manufacturer="Thermaltake", wattage=850,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=150, ReleaseDate=date(2019, 7, 1))
+            psu92 = Psu(psu_name="Thermaltake Toughpower Grand RGB 1200W Platinum", manufacturer="Thermaltake",
+                        wattage=1200, efficiency_rating="80+ Platinum", modular="Fully", msrp=250,
+                        ReleaseDate=date(2019, 10, 1))
+            psu93 = Psu(psu_name="Thermaltake Toughpower PF1 ARGB 850W Platinum", manufacturer="Thermaltake",
+                        wattage=850, efficiency_rating="80+ Platinum", modular="Fully", msrp=180,
+                        ReleaseDate=date(2020, 6, 1))
+
+            # SilverStone PSUs
+            psu94 = Psu(psu_name="SilverStone ET550-B", manufacturer="SilverStone", wattage=550,
+                        efficiency_rating="80+ Bronze", modular="No", msrp=50, ReleaseDate=date(2019, 4, 1))
+            psu95 = Psu(psu_name="SilverStone Strider Gold S 750W", manufacturer="SilverStone", wattage=750,
+                        efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 9, 1))
+            psu96 = Psu(psu_name="SilverStone Strider Platinum 850W", manufacturer="SilverStone", wattage=850,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=160, ReleaseDate=date(2020, 6, 1))
+            psu97 = Psu(psu_name="SilverStone Strider Titanium 1100W", manufacturer="SilverStone", wattage=1100,
+                        efficiency_rating="80+ Titanium", modular="Fully", msrp=250, ReleaseDate=date(2019, 6, 1))
+            psu98 = Psu(psu_name="SilverStone Strider Platinum 1200W", manufacturer="SilverStone", wattage=1200,
+                        efficiency_rating="80+ Platinum", modular="Fully", msrp=250, ReleaseDate=date(2019, 11, 1))
+
+            # Antec PSUs
+            psu99 = Psu(psu_name="Antec EarthWatts Gold Pro 650W", manufacturer="Antec", wattage=650,
+                        efficiency_rating="80+ Gold", modular="Semi", msrp=80, ReleaseDate=date(2019, 4, 1))
+            psu100 = Psu(psu_name="Antec EarthWatts Gold Pro 750W", manufacturer="Antec", wattage=750,
+                         efficiency_rating="80+ Gold", modular="Semi", msrp=100, ReleaseDate=date(2019, 4, 1))
+            psu101 = Psu(psu_name="Antec NeoECO Gold ZEN 700W", manufacturer="Antec", wattage=700,
+                         efficiency_rating="80+ Gold", modular="No", msrp=90, ReleaseDate=date(2020, 6, 1))
+            psu102 = Psu(psu_name="Antec High Current Gamer 850W Gold", manufacturer="Antec", wattage=850,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=150, ReleaseDate=date(2019, 3, 1))
+            psu103 = Psu(psu_name="Antec Signature Platinum 1000W", manufacturer="Antec", wattage=1000,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=230, ReleaseDate=date(2019, 5, 1))
+
+            # FSP PSUs
+            psu104 = Psu(psu_name="FSP Hydro G 750W", manufacturer="FSP", wattage=750, efficiency_rating="80+ Gold",
+                         modular="Fully", msrp=130, ReleaseDate=date(2019, 4, 1))
+            psu105 = Psu(psu_name="FSP Hydro PTM 850W", manufacturer="FSP", wattage=850,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=180, ReleaseDate=date(2019, 4, 1))
+            psu106 = Psu(psu_name="FSP Hydro PTM 1200W", manufacturer="FSP", wattage=1200,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=250, ReleaseDate=date(2020, 7, 1))
+            psu107 = Psu(psu_name="FSP Dagger 600W", manufacturer="FSP", wattage=600, efficiency_rating="80+ Gold",
+                         modular="Fully", msrp=140, ReleaseDate=date(2019, 2, 1))
+
+            # XPG PSUs
+            psu108 = Psu(psu_name="XPG Pylon 550W", manufacturer="XPG", wattage=550, efficiency_rating="80+ Bronze",
+                         modular="No", msrp=60, ReleaseDate=date(2020, 7, 1))
+            psu109 = Psu(psu_name="XPG Core Reactor 750W", manufacturer="XPG", wattage=750,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=120, ReleaseDate=date(2020, 3, 1))
+            psu110 = Psu(psu_name="XPG Core Reactor 850W", manufacturer="XPG", wattage=850,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=140, ReleaseDate=date(2020, 3, 1))
+
+            # Super Flower PSUs
+            psu111 = Psu(psu_name="Super Flower Leadex III 750W", manufacturer="Super Flower", wattage=750,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 5, 1))
+            psu112 = Psu(psu_name="Super Flower Leadex Platinum 1000W", manufacturer="Super Flower", wattage=1000,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=220, ReleaseDate=date(2019, 5, 1))
+
+            # Fractal Design PSUs
+            psu113 = Psu(psu_name="Fractal Design Ion+ 760W Platinum", manufacturer="Fractal Design", wattage=760,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=160, ReleaseDate=date(2019, 7, 1))
+            psu114 = Psu(psu_name="Fractal Design Ion+ 860W Platinum", manufacturer="Fractal Design", wattage=860,
+                         efficiency_rating="80+ Platinum", modular="Fully", msrp=180, ReleaseDate=date(2019, 7, 1))
+
+            # Enermax PSUs
+            psu115 = Psu(psu_name="Enermax Revolution DF 750W", manufacturer="Enermax", wattage=750,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=130, ReleaseDate=date(2019, 8, 1))
+            psu116 = Psu(psu_name="Enermax MaxTytan 800W", manufacturer="Enermax", wattage=800,
+                         efficiency_rating="80+ Titanium", modular="Fully", msrp=230, ReleaseDate=date(2019, 8, 1))
+
+            # DeepCool PSUs
+            psu117 = Psu(psu_name="DeepCool DQ650-M", manufacturer="DeepCool", wattage=650,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=90, ReleaseDate=date(2019, 4, 1))
+            psu118 = Psu(psu_name="DeepCool DQ750-M", manufacturer="DeepCool", wattage=750,
+                         efficiency_rating="80+ Gold", modular="Fully", msrp=110, ReleaseDate=date(2019, 4, 1))
+
+            # Cougar PSUs
+            psu119 = Psu(psu_name="Cougar GX-F 650W", manufacturer="Cougar", wattage=650, efficiency_rating="80+ Gold",
+                         modular="Fully", msrp=100, ReleaseDate=date(2019, 3, 1))
+            psu120 = Psu(psu_name="Cougar VTE600", manufacturer="Cougar", wattage=600, efficiency_rating="80+ Bronze",
+                         modular="No", msrp=60, ReleaseDate=date(2019, 3, 1))
+
+            # Add all PSU entries to the session
+            db.session.add_all(
+                [psu1, psu2, psu3, psu4, psu5, psu6, psu7, psu8, psu9, psu10, psu11, psu12, psu13, psu14, psu15, psu16,
+                 psu17, psu18, psu19, psu20, psu21, psu22, psu23, psu24, psu25, psu26, psu27, psu28, psu29, psu30,
+                 psu31, psu32, psu33, psu34, psu35, psu36, psu37, psu38, psu39, psu40, psu41, psu42, psu43, psu44,
+                 psu45, psu46, psu47, psu48, psu49, psu50, psu51, psu52, psu53, psu54, psu55, psu56, psu57, psu58,
+                 psu59, psu60, psu61, psu62, psu63, psu64, psu65, psu66, psu67, psu68, psu69, psu70, psu71, psu72,
+                 psu73, psu74, psu75, psu76, psu77, psu78, psu79, psu80, psu81, psu82, psu83, psu84, psu85, psu86,
+                 psu87, psu88, psu89, psu90, psu91, psu92, psu93, psu94, psu95, psu96, psu97, psu98, psu99, psu100,
+                 psu101, psu102, psu103, psu104, psu105, psu106, psu107, psu108, psu109, psu110, psu111, psu112, psu113,
+                 psu114, psu115, psu116, psu117, psu118, psu119, psu120])
 
         if not Case.query.first():  # Check if the Case table is empty
             case1 = Case(case_name="NZXT H510", manufacturer="NZXT", form_factor="Mid Tower", color="Black", msrp=70,
-                         ReleaseDate=date(2019,7,1))
+                         ReleaseDate=date(2019, 7, 1))
             case2 = Case(case_name="Corsair 4000D Airflow", manufacturer="Corsair", form_factor="Mid Tower",
-                         color="White", msrp=95, ReleaseDate=date(2020,9,15))
-            db.session.add_all([case1, case2])
+                         color="White", msrp=95, ReleaseDate=date(2020, 9, 15))
+            case3 = Case(case_name="Fractal Design Meshify C", manufacturer="Fractal Design", form_factor="Mid Tower",
+                         color="Black", msrp=90, ReleaseDate=date(2019, 3, 12))
+            case4 = Case(case_name="Lian Li PC-O11 Dynamic", manufacturer="Lian Li", form_factor="Mid Tower",
+                         color="Black", msrp=140, ReleaseDate=date(2019, 5, 18))
+            case5 = Case(case_name="Phanteks Eclipse P400A", manufacturer="Phanteks", form_factor="Mid Tower",
+                         color="Black", msrp=70, ReleaseDate=date(2019, 8, 22))
+            case6 = Case(case_name="Cooler Master MasterBox Q300L", manufacturer="Cooler Master",
+                         form_factor="Micro-ATX", color="Black", msrp=50, ReleaseDate=date(2019, 2, 14))
+            case7 = Case(case_name="Thermaltake Core V1", manufacturer="Thermaltake", form_factor="Mini-ITX",
+                         color="Black", msrp=50, ReleaseDate=date(2019, 4, 5))
+            case8 = Case(case_name="be quiet! Pure Base 500", manufacturer="be quiet!", form_factor="Mid Tower",
+                         color="Black", msrp=80, ReleaseDate=date(2019, 9, 3))
+            case9 = Case(case_name="Corsair Crystal 570X RGB", manufacturer="Corsair", form_factor="Mid Tower",
+                         color="Black", msrp=180, ReleaseDate=date(2019, 1, 15))
+            case10 = Case(case_name="NZXT H210", manufacturer="NZXT", form_factor="Mini-ITX", color="White", msrp=80,
+                          ReleaseDate=date(2019, 7, 15))
+
+            case11 = Case(case_name="Fractal Design Define 7", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Black", msrp=170, ReleaseDate=date(2020, 2, 11))
+            case12 = Case(case_name="Cooler Master NR200", manufacturer="Cooler Master", form_factor="Mini-ITX",
+                          color="Black", msrp=80, ReleaseDate=date(2020, 7, 14))
+            case13 = Case(case_name="Lian Li Lancool II Mesh", manufacturer="Lian Li", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2020, 6, 20))
+            case14 = Case(case_name="Phanteks P500A", manufacturer="Phanteks", form_factor="Full Tower", color="White",
+                          msrp=100, ReleaseDate=date(2020, 7, 7))
+            case15 = Case(case_name="NZXT H710i", manufacturer="NZXT", form_factor="Mid Tower", color="Black/Red",
+                          msrp=170, ReleaseDate=date(2019, 10, 22))
+            case16 = Case(case_name="Corsair iCUE 465X RGB", manufacturer="Corsair", form_factor="Mid Tower",
+                          color="White", msrp=120, ReleaseDate=date(2019, 10, 10))
+            case17 = Case(case_name="Fractal Design Meshify S2", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Black", msrp=150, ReleaseDate=date(2019, 1, 22))
+            case18 = Case(case_name="be quiet! Dark Base 700", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=180, ReleaseDate=date(2019, 3, 5))
+            case19 = Case(case_name="Thermaltake View 71 TG", manufacturer="Thermaltake", form_factor="Full Tower",
+                          color="Black", msrp=170, ReleaseDate=date(2019, 4, 23))
+            case20 = Case(case_name="Cooler Master H500", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="Gray", msrp=100, ReleaseDate=date(2019, 2, 28))
+
+            case21 = Case(case_name="NZXT H1", manufacturer="NZXT", form_factor="Mini-ITX", color="Black", msrp=350,
+                          ReleaseDate=date(2020, 2, 26))
+            case22 = Case(case_name="Corsair 220T RGB", manufacturer="Corsair", form_factor="Mid Tower", color="Black",
+                          msrp=110, ReleaseDate=date(2019, 11, 14))
+            case23 = Case(case_name="Phanteks Evolv Shift", manufacturer="Phanteks", form_factor="Mini-ITX",
+                          color="Silver", msrp=110, ReleaseDate=date(2019, 5, 17))
+            case24 = Case(case_name="Lian Li O11 Dynamic Mini", manufacturer="Lian Li", form_factor="Micro-ATX",
+                          color="Black", msrp=100, ReleaseDate=date(2020, 11, 11))
+            case25 = Case(case_name="Fractal Design Era ITX", manufacturer="Fractal Design", form_factor="Mini-ITX",
+                          color="Gold", msrp=160, ReleaseDate=date(2020, 3, 31))
+            case26 = Case(case_name="be quiet! Silent Base 802", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=160, ReleaseDate=date(2020, 10, 20))
+            case27 = Case(case_name="Cooler Master TD500 Mesh", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="Black", msrp=100, ReleaseDate=date(2020, 4, 7))
+            case28 = Case(case_name="Thermaltake Level 20 MT", manufacturer="Thermaltake", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2019, 8, 9))
+            case29 = Case(case_name="NZXT H510 Elite", manufacturer="NZXT", form_factor="Mid Tower", color="White",
+                          msrp=150, ReleaseDate=date(2019, 7, 22))
+            case30 = Case(case_name="Corsair 275R Airflow", manufacturer="Corsair", form_factor="Mid Tower",
+                          color="Black", msrp=80, ReleaseDate=date(2019, 12, 5))
+
+            case31 = Case(case_name="Phanteks Enthoo Pro 2", manufacturer="Phanteks", form_factor="Full Tower",
+                          color="Black", msrp=140, ReleaseDate=date(2020, 8, 14))
+            case32 = Case(case_name="Lian Li PC-011 Dynamic XL", manufacturer="Lian Li", form_factor="Full Tower",
+                          color="White", msrp=200, ReleaseDate=date(2019, 9, 17))
+            case33 = Case(case_name="Fractal Design Define 7 Compact", manufacturer="Fractal Design",
+                          form_factor="Mid Tower", color="Black", msrp=110, ReleaseDate=date(2020, 5, 28))
+            case34 = Case(case_name="be quiet! Pure Base 500DX", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="White", msrp=100, ReleaseDate=date(2020, 4, 28))
+            case35 = Case(case_name="Cooler Master MasterCase H500M", manufacturer="Cooler Master",
+                          form_factor="Mid Tower", color="Black", msrp=200, ReleaseDate=date(2019, 6, 11))
+            case36 = Case(case_name="Thermaltake Tower 900", manufacturer="Thermaltake", form_factor="Super Tower",
+                          color="Black", msrp=280, ReleaseDate=date(2019, 5, 5))
+            case37 = Case(case_name="NZXT H710", manufacturer="NZXT", form_factor="Mid Tower", color="Black", msrp=140,
+                          ReleaseDate=date(2019, 10, 15))
+            case38 = Case(case_name="Corsair 680X RGB", manufacturer="Corsair", form_factor="Mid Tower", color="Black",
+                          msrp=250, ReleaseDate=date(2019, 3, 19))
+            case39 = Case(case_name="Phanteks Enthoo Evolv X", manufacturer="Phanteks", form_factor="Mid Tower",
+                          color="Gray", msrp=200, ReleaseDate=date(2019, 2, 7))
+            case40 = Case(case_name="Fractal Design Node 202", manufacturer="Fractal Design", form_factor="Mini-ITX",
+                          color="Black", msrp=80, ReleaseDate=date(2019, 3, 28))
+
+            case41 = Case(case_name="Cooler Master SL600M", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="Black", msrp=200, ReleaseDate=date(2019, 4, 16))
+            case42 = Case(case_name="be quiet! Shadow Base 601", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Silver", msrp=150, ReleaseDate=date(2019, 11, 26))
+            case43 = Case(case_name="Lian Li TU150", manufacturer="Lian Li", form_factor="Mini-ITX", color="Black",
+                          msrp=110, ReleaseDate=date(2019, 8, 27))
+            case44 = Case(case_name="NZXT H210i", manufacturer="NZXT", form_factor="Mini-ITX", color="Black/Red",
+                          msrp=110, ReleaseDate=date(2019, 7, 18))
+            case45 = Case(case_name="Thermaltake Core P3", manufacturer="Thermaltake", form_factor="Mid Tower",
+                          color="Black", msrp=130, ReleaseDate=date(2019, 9, 24))
+            case46 = Case(case_name="Corsair 465X RGB", manufacturer="Corsair", form_factor="Mid Tower", color="Black",
+                          msrp=150, ReleaseDate=date(2019, 10, 24))
+            case47 = Case(case_name="Phanteks Eclipse P300A", manufacturer="Phanteks", form_factor="Mid Tower",
+                          color="Black", msrp=60, ReleaseDate=date(2020, 1, 23))
+            case48 = Case(case_name="Fractal Design Meshify 2", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Black", msrp=140, ReleaseDate=date(2020, 11, 17))
+            case49 = Case(case_name="Cooler Master MasterBox TD500", manufacturer="Cooler Master",
+                          form_factor="Mid Tower", color="White", msrp=100, ReleaseDate=date(2020, 3, 17))
+            case50 = Case(case_name="be quiet! Pure Base 600", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2019, 4, 9))
+
+            case51 = Case(case_name="NZXT H200", manufacturer="NZXT", form_factor="Mini-ITX", color="Black/Blue",
+                          msrp=90, ReleaseDate=date(2019, 1, 8))
+            case52 = Case(case_name="Corsair 175R RGB", manufacturer="Corsair", form_factor="Mid Tower", color="Black",
+                          msrp=70, ReleaseDate=date(2019, 11, 5))
+            case53 = Case(case_name="Lian Li PC-Q58", manufacturer="Lian Li", form_factor="Mini-ITX", color="Black",
+                          msrp=130, ReleaseDate=date(2021, 8, 4))
+            case54 = Case(case_name="Phanteks Evolv Shift 2", manufacturer="Phanteks", form_factor="Mini-ITX",
+                          color="Black", msrp=120, ReleaseDate=date(2020, 12, 15))
+            case55 = Case(case_name="Fractal Design Focus G", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Blue", msrp=60, ReleaseDate=date(2019, 1, 30))
+            case56 = Case(case_name="Cooler Master MasterBox MB311L", manufacturer="Cooler Master",
+                          form_factor="Micro-ATX", color="Black", msrp=60, ReleaseDate=date(2020, 6, 2))
+            case57 = Case(case_name="Thermaltake S100", manufacturer="Thermaltake", form_factor="Micro-ATX",
+                          color="White", msrp=70, ReleaseDate=date(2020, 2, 18))
+            case58 = Case(case_name="be quiet! Pure Base 500 Window", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2019, 9, 10))
+            case59 = Case(case_name="NZXT H400i", manufacturer="NZXT", form_factor="Micro-ATX", color="Black/Purple",
+                          msrp=120, ReleaseDate=date(2019, 2, 12))
+            case60 = Case(case_name="Corsair 110R", manufacturer="Corsair", form_factor="Mid Tower", color="Black",
+                          msrp=65, ReleaseDate=date(2020, 1, 14))
+
+            case61 = Case(case_name="Phanteks P300", manufacturer="Phanteks", form_factor="Mid Tower", color="Black",
+                          msrp=60, ReleaseDate=date(2019, 1, 17))
+            case62 = Case(case_name="Lian Li LANCOOL 215", manufacturer="Lian Li", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2020, 9, 22))
+            case63 = Case(case_name="Fractal Design North", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Charcoal", msrp=130, ReleaseDate=date(2022, 6, 16))
+            case64 = Case(case_name="be quiet! Dark Base Pro 901", manufacturer="be quiet!", form_factor="Full Tower",
+                          color="Black", msrp=260, ReleaseDate=date(2023, 5, 23))
+            case65 = Case(case_name="Cooler Master HAF 700", manufacturer="Cooler Master", form_factor="Full Tower",
+                          color="Black", msrp=300, ReleaseDate=date(2022, 2, 15))
+            case66 = Case(case_name="Thermaltake Divider 300 TG", manufacturer="Thermaltake", form_factor="Mid Tower",
+                          color="White", msrp=120, ReleaseDate=date(2021, 3, 23))
+            case67 = Case(case_name="NZXT H7 Flow", manufacturer="NZXT", form_factor="Mid Tower", color="Black",
+                          msrp=130, ReleaseDate=date(2022, 5, 10))
+            case68 = Case(case_name="Corsair 5000D Airflow", manufacturer="Corsair", form_factor="Mid Tower",
+                          color="White", msrp=165, ReleaseDate=date(2021, 1, 28))
+            case69 = Case(case_name="Phanteks Evolv X", manufacturer="Phanteks", form_factor="Mid Tower",
+                          color="Silver", msrp=200, ReleaseDate=date(2019, 10, 15))
+            case70 = Case(case_name="Lian Li A4-H20", manufacturer="Lian Li", form_factor="Mini-ITX", color="Black",
+                          msrp=120, ReleaseDate=date(2022, 1, 18))
+
+            case71 = Case(case_name="Fractal Design Pop XL Air", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="White", msrp=105, ReleaseDate=date(2022, 7, 19))
+            case72 = Case(case_name="be quiet! Silent Base 601", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Orange", msrp=130, ReleaseDate=date(2019, 6, 4))
+            case73 = Case(case_name="Cooler Master HAF 500", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="Black", msrp=150, ReleaseDate=date(2022, 2, 1))
+            case74 = Case(case_name="Thermaltake View 51", manufacturer="Thermaltake", form_factor="Full Tower",
+                          color="Snow", msrp=190, ReleaseDate=date(2020, 1, 7))
+            case75 = Case(case_name="NZXT H9 Flow", manufacturer="NZXT", form_factor="Mid Tower", color="White",
+                          msrp=160, ReleaseDate=date(2023, 1, 17))
+            case76 = Case(case_name="Corsair 7000D Airflow", manufacturer="Corsair", form_factor="Full Tower",
+                          color="Black", msrp=270, ReleaseDate=date(2021, 5, 13))
+            case77 = Case(case_name="Phanteks Enthoo Pro II", manufacturer="Phanteks", form_factor="Full Tower",
+                          color="Gray", msrp=150, ReleaseDate=date(2020, 8, 5))
+            case78 = Case(case_name="Lian Li O11 Dynamic EVO", manufacturer="Lian Li", form_factor="Mid Tower",
+                          color="Black", msrp=170, ReleaseDate=date(2022, 1, 12))
+            case79 = Case(case_name="Fractal Design Torrent", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Black", msrp=190, ReleaseDate=date(2021, 8, 18))
+            case80 = Case(case_name="be quiet! Pure Base 600S", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Silver", msrp=120, ReleaseDate=date(2019, 7, 9))
+
+            case81 = Case(case_name="Cooler Master CMP 510", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="Black", msrp=70, ReleaseDate=date(2020, 11, 10))
+            case82 = Case(case_name="Thermaltake AH T600", manufacturer="Thermaltake", form_factor="Full Tower",
+                          color="Black", msrp=250, ReleaseDate=date(2020, 3, 24))
+            case83 = Case(case_name="NZXT H5 Flow", manufacturer="NZXT", form_factor="Mid Tower", color="Black",
+                          msrp=95, ReleaseDate=date(2023, 4, 4))
+            case84 = Case(case_name="Corsair iCUE 5000X", manufacturer="Corsair", form_factor="Mid Tower",
+                          color="White", msrp=205, ReleaseDate=date(2021, 1, 19))
+            case85 = Case(case_name="Phanteks Eclipse G360A", manufacturer="Phanteks", form_factor="Mid Tower",
+                          color="Black", msrp=100, ReleaseDate=date(2022, 5, 17))
+            case86 = Case(case_name="Lian Li O11 Air Mini", manufacturer="Lian Li", form_factor="Mid Tower",
+                          color="White", msrp=110, ReleaseDate=date(2021, 12, 15))
+            case87 = Case(case_name="Fractal Design Pop Air", manufacturer="Fractal Design", form_factor="Mid Tower",
+                          color="Black", msrp=90, ReleaseDate=date(2022, 7, 12))
+            case88 = Case(case_name="be quiet! Pure Base 700", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=110, ReleaseDate=date(2023, 9, 5))
+            case89 = Case(case_name="Cooler Master TD300 Mesh", manufacturer="Cooler Master", form_factor="Mid Tower",
+                          color="White", msrp=100, ReleaseDate=date(2021, 4, 20))
+            case90 = Case(case_name="Thermaltake H350 TG", manufacturer="Thermaltake", form_factor="Mid Tower",
+                          color="Black", msrp=80, ReleaseDate=date(2021, 6, 8))
+
+            case91 = Case(case_name="NZXT H7", manufacturer="NZXT", form_factor="Mid Tower", color="White", msrp=130,
+                          ReleaseDate=date(2022, 5, 17))
+            case92 = Case(case_name="Corsair iCUE 7000X", manufacturer="Corsair", form_factor="Full Tower",
+                          color="Black", msrp=330, ReleaseDate=date(2021, 5, 20))
+            case93 = Case(case_name="Phanteks Eclipse P500A DRGB", manufacturer="Phanteks", form_factor="Mid Tower",
+                          color="Black", msrp=130, ReleaseDate=date(2020, 7, 14))
+            case94 = Case(case_name="Lian Li Q58", manufacturer="Lian Li", form_factor="Mini-ITX", color="White",
+                          msrp=150, ReleaseDate=date(2021, 8, 11))
+            case95 = Case(case_name="Fractal Design Torrent Compact", manufacturer="Fractal Design",
+                          form_factor="Mid Tower", color="Black", msrp=140, ReleaseDate=date(2022, 2, 2))
+            case96 = Case(case_name="be quiet! Shadow Rock 3", manufacturer="be quiet!", form_factor="Mid Tower",
+                          color="Black", msrp=80, ReleaseDate=date(2020, 3, 10))
+            case97 = Case(case_name="Cooler Master MasterBox NR200P MAX", manufacturer="Cooler Master",
+                          form_factor="Mini-ITX", color="Black", msrp=350, ReleaseDate=date(2021, 9, 28))
+            case98 = Case(case_name="Thermaltake The Tower 100", manufacturer="Thermaltake", form_factor="Mini-ITX",
+                          color="Black", msrp=120, ReleaseDate=date(2020, 12, 22))
+            case99 = Case(case_name="NZXT H9 Elite", manufacturer="NZXT", form_factor="Mid Tower", color="Black",
+                          msrp=240, ReleaseDate=date(2023, 1, 17))
+            case100 = Case(case_name="Corsair 2000D Airflow", manufacturer="Corsair", form_factor="Mid Tower",
+                           color="Black", msrp=120, ReleaseDate=date(2023, 8, 1))
+
+            case101 = Case(case_name="Phanteks Enthoo Pro 3", manufacturer="Phanteks", form_factor="Full Tower",
+                           color="Black", msrp=170, ReleaseDate=date(2023, 10, 3))
+            case102 = Case(case_name="Lian Li V3000 Plus", manufacturer="Lian Li", form_factor="Full Tower",
+                           color="Silver", msrp=290, ReleaseDate=date(2023, 7, 11))
+            case103 = Case(case_name="Fractal Design North XL", manufacturer="Fractal Design", form_factor="Mid Tower",
+                           color="White", msrp=160, ReleaseDate=date(2023, 2, 7))
+            case104 = Case(case_name="be quiet! Silent Base 802 Window", manufacturer="be quiet!",
+                           form_factor="Mid Tower", color="White", msrp=180, ReleaseDate=date(2020, 11, 17))
+            case105 = Case(case_name="Cooler Master HAF 700 EVO", manufacturer="Cooler Master",
+                           form_factor="Full Tower", color="Black", msrp=400, ReleaseDate=date(2022, 3, 15))
+            case106 = Case(case_name="Thermaltake Ceres 300 TG", manufacturer="Thermaltake", form_factor="Mid Tower",
+                           color="Black", msrp=100, ReleaseDate=date(2023, 6, 13))
+            case107 = Case(case_name="NZXT H6 Flow", manufacturer="NZXT", form_factor="Mid Tower", color="Black",
+                           msrp=160, ReleaseDate=date(2024, 1, 16))
+            case108 = Case(case_name="Corsair 3000D Airflow", manufacturer="Corsair", form_factor="Mid Tower",
+                           color="White", msrp=135, ReleaseDate=date(2023, 10, 17))
+            case109 = Case(case_name="Phanteks Revolt Pro", manufacturer="Phanteks", form_factor="Mini-ITX",
+                           color="Black", msrp=140, ReleaseDate=date(2022, 10, 18))
+            case110 = Case(case_name="Lian Li LANCOOL III", manufacturer="Lian Li", form_factor="Mid Tower",
+                           color="Black/White", msrp=160, ReleaseDate=date(2022, 7, 19))
+
+            case111 = Case(case_name="Fractal Design Meshify 2 XL", manufacturer="Fractal Design",
+                           form_factor="Full Tower", color="Black", msrp=180, ReleaseDate=date(2020, 11, 24))
+            case112 = Case(case_name="be quiet! Dark Base 900", manufacturer="be quiet!", form_factor="Full Tower",
+                           color="Black/Orange", msrp=250, ReleaseDate=date(2021, 11, 9))
+            case113 = Case(case_name="Cooler Master Cosmos C700M", manufacturer="Cooler Master",
+                           form_factor="Full Tower", color="Black", msrp=440, ReleaseDate=date(2019, 10, 8))
+            case114 = Case(case_name="Thermaltake Core P8", manufacturer="Thermaltake", form_factor="Full Tower",
+                           color="Black", msrp=240, ReleaseDate=date(2020, 8, 11))
+            case115 = Case(case_name="NZXT H6 Elite", manufacturer="NZXT", form_factor="Mid Tower", color="White",
+                           msrp=190, ReleaseDate=date(2024, 1, 23))
+            case116 = Case(case_name="Corsair 1000D", manufacturer="Corsair", form_factor="Super Tower", color="Black",
+                           msrp=500, ReleaseDate=date(2019, 5, 9))
+            case117 = Case(case_name="Phanteks Shift 2 Air", manufacturer="Phanteks", form_factor="Mini-ITX",
+                           color="Black", msrp=100, ReleaseDate=date(2020, 12, 22))
+            case118 = Case(case_name="Lian Li DAN Cases A4-H2O", manufacturer="Lian Li", form_factor="Mini-ITX",
+                           color="Silver", msrp=130, ReleaseDate=date(2022, 2, 10))
+            case119 = Case(case_name="Fractal Design Ridge", manufacturer="Fractal Design", form_factor="Mini-ITX",
+                           color="Black", msrp=160, ReleaseDate=date(2023, 5, 23))
+            case120 = Case(case_name="be quiet! Silent Base 803", manufacturer="be quiet!", form_factor="Mid Tower",
+                           color="Black", msrp=190, ReleaseDate=date(2024, 3, 5))
+
+            # Add all cases to database
+            db.session.add_all([
+                case1, case2, case3, case4, case5, case6, case7, case8, case9, case10,
+                case11, case12, case13, case14, case15, case16, case17, case18, case19, case20,
+                case21, case22, case23, case24, case25, case26, case27, case28, case29, case30,
+                case31, case32, case33, case34, case35, case36, case37, case38, case39, case40,
+                case41, case42, case43, case44, case45, case46, case47, case48, case49, case50,
+                case51, case52, case53, case54, case55, case56, case57, case58, case59, case60,
+                case61, case62, case63, case64, case65, case66, case67, case68, case69, case70,
+                case71, case72, case73, case74, case75, case76, case77, case78, case79, case80,
+                case81, case82, case83, case84, case85, case86, case87, case88, case89, case90,
+                case91, case92, case93, case94, case95, case96, case97, case98, case99, case100,
+                case101, case102, case103, case104, case105, case106, case107, case108, case109, case110,
+                case111, case112, case113, case114, case115, case116, case117, case118, case119, case120
+            ])
 
         # Add similar seed data for other models (Motherboard, Ram, Storage, Psu, Case, Build) as needed
 
