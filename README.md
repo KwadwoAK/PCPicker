@@ -52,4 +52,4 @@ To run the program, got main.py and run the file. the flask server should start 
 ## Navigation:
 when you first open the application, you will be greeted with the login screen. If you do not have an account, you can create one by clicking on the "Register" button. Once you are logged in, you will be able to see your builds and add new parts to your builds. You can also edit and delete your builds as needed.
 
-
+<video src ='https://drive.google.com/file/d/1T5xtrCdH7_1CpxPxIxa94gD2361z-5ZK/view?usp=sharing' controls width="100%" height="100%"></video>
