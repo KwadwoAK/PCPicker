@@ -6,13 +6,13 @@ from . import db
 
 views = Blueprint('views', __name__)
 
+
 @views.route('/')
 @login_required
 def home():
-    return render_template("home.html", user = current_user)
+    return render_template("home.html", user=current_user)
 
-
-
+# This route allows users to create a new build.
 @views.route('/create-build', methods=['GET', 'POST'])
 @login_required
 def create_build():
@@ -63,8 +63,7 @@ def create_build():
         cases=cases
     )
 
-
-
+# This route allows users to view all their builds.
 @views.route('/view-builds', methods=['GET'])
 @login_required
 def view_builds():
@@ -74,18 +73,18 @@ def view_builds():
     # Calculate the total cost for each build
     for build in builds:
         build.total_cost = (
-            build.gpu.msrp +
-            build.cpu.msrp +
-            build.motherboard.msrp +
-            build.ram.msrp +
-            build.storage.msrp +
-            build.psu.msrp +
-            build.case.msrp
+                build.gpu.msrp +
+                build.cpu.msrp +
+                build.motherboard.msrp +
+                build.ram.msrp +
+                build.storage.msrp +
+                build.psu.msrp +
+                build.case.msrp
         )
 
     return render_template("viewbuild.html", builds=builds)
 
-
+# This route allows users to delete an existing build.
 @views.route('/delete-build/<int:build_id>', methods=['GET', 'POST'])
 @login_required
 def delete_build(build_id):
@@ -104,7 +103,7 @@ def delete_build(build_id):
 
     return render_template("delete_build.html", build=build)
 
-
+# This route allows users to edit an existing build.
 @views.route('/edit-build/<int:build_id>', methods=['GET', 'POST'])
 @login_required
 def edit_build(build_id):
@@ -126,13 +125,13 @@ def edit_build(build_id):
 
         # Recalculate total cost
         build.total_cost = (
-            build.gpu.msrp +
-            build.cpu.msrp +
-            build.motherboard.msrp +
-            build.ram.msrp +
-            build.storage.msrp +
-            build.psu.msrp +
-            build.case.msrp
+                build.gpu.msrp +
+                build.cpu.msrp +
+                build.motherboard.msrp +
+                build.ram.msrp +
+                build.storage.msrp +
+                build.psu.msrp +
+                build.case.msrp
         )
 
         db.session.commit()
@@ -160,3 +159,29 @@ def edit_build(build_id):
         cases=cases
     )
 
+# This rout shows a query that lists all avaialbe manufacturers from all parts in the database.
+@views.route('/manufacturers', methods=['GET'])
+@login_required
+def list_manufactures():
+    # Query distinct manufacturers from each part table
+    gpu_manufacturers = {gpu.manufacturer for gpu in Gpu.query.distinct(Gpu.manufacturer).all()}
+    cpu_manufacturers = {cpu.manufacturer for cpu in Cpu.query.distinct(Cpu.manufacturer).all()}
+    motherboard_manufacturers = {motherboard.manufacturer for motherboard in
+                                 Motherboard.query.distinct(Motherboard.manufacturer).all()}
+    ram_manufacturers = {ram.manufacturer for ram in Ram.query.distinct(Ram.manufacturer).all()}
+    storage_manufacturers = {storage.manufacturer for storage in Storage.query.distinct(Storage.manufacturer).all()}
+    psu_manufacturers = {psu.manufacturer for psu in Psu.query.distinct(Psu.manufacturer).all()}
+    case_manufacturers = {case.manufacturer for case in Case.query.distinct(Case.manufacturer).all()}
+
+    # Combine all manufacturers into a single distinct list
+    all_manufacturers = sorted(
+        gpu_manufacturers |
+        cpu_manufacturers |
+        motherboard_manufacturers |
+        ram_manufacturers |
+        storage_manufacturers |
+        psu_manufacturers |
+        case_manufacturers
+    )
+
+    return render_template("Manufactures.html", manufacturers=all_manufacturers)

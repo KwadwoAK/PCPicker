@@ -40,6 +40,16 @@ The ER diagram below shows the relationships between the entities in the PCPicke
 the initial schema had it so where user had contained all the foreign keys to all the parts. This created a couple of problems in which the user table became redundant, along with that this format only made it possible for users to have only one build. The normalization process was done to remove the redundancy and allow users to have multiple builds. The new schema has a user table, a parts table, and a Build table in which users can have multiple builds and each build can have multiple parts.
 ![ER Diagram](Normalization.png)
 
+## Relational Schema:
+- user(user_id, username, email, password)
+- gpu(gpu_id, name, manufacturer, gpu_brand, vram, vram_type, price, pcie, release_date)
+- cpu(cpu_id, name, manufacturer, cores, threads, base_clock_speed, boost_clock_speed, socket_type, tdp, price, release_date)
+- motherboard(motherboard_id, name, manufacturer, form_factor, socket_type, chipset, ram_compatibility, ram_slots, price, release_date)
+- ram(ram_id, name, manufacturer, capacity, type, speed, price, release_date)
+- storage(storage_id, name, manufacturer, type, capacity, speed, price, release_date)
+- power_supply(psu_id, name, manufacturer, wattage, efficiency_rating, modular, price, release_date)
+- case(case_id, name, manufacturer, form_factor, color, price, release_date)
+- build(build_id, user_id, gpu_id, cpu_id, motherboard_id, ram_id, storage_id, psu_id, case_id, total_price, created_date)
 ## Installation:
 install the required packages using pip:
 ```
@@ -50,6 +60,6 @@ pip install flask_login
 To run the program, got main.py and run the file. the flask server should start running on port 5000, click on the link to open the web application in your browser.
 
 ## Navigation:
-when you first open the application, you will be greeted with the login screen. If you do not have an account, you can create one by clicking on the "Register" button. Once you are logged in, you will be able to see your builds and add new parts to your builds. You can also edit and delete your builds as needed.
+when you first open the application, you will be greeted with the login screen. If you do not have an account, you can create one by clicking on the "Register" button. Once you are logged in, you will be able to see your builds and add new parts to your builds. You can also edit and delete your builds as needed. At any time users can click the home button to return to the home page. From there you can also view the list of available manufacturers.
 
 <video src ='https://streamable.com/ag6mhq' controls width="100%" height="100%"></video>
