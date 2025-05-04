@@ -70,7 +70,7 @@ def view_builds():
     # Fetch all builds for the current user
     builds = Build.query.filter_by(user_id=current_user.id).all()
 
-    # Calculate the total cost for each build
+    # Calculate the total cost for each build/Sum
     for build in builds:
         build.total_cost = (
                 build.gpu.msrp +
@@ -185,3 +185,20 @@ def list_manufactures():
     )
 
     return render_template("Manufactures.html", manufacturers=all_manufacturers)
+
+@views.route('/delete-user', methods=['GET', 'POST'])
+@login_required
+def delete_user():
+    if request.method == 'POST':
+        # Delete all builds associated with the user
+        Build.query.filter_by(user_id=current_user.id).delete()
+
+        # Delete the user account
+        user = User.query.get(current_user.id)
+        db.session.delete(user)
+        db.session.commit()
+
+        flash("Your account and all associated builds have been deleted.", category='success')
+        return redirect(url_for('auth.login'))
+
+    return render_template("delete_user.html", user=current_user)
