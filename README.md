@@ -1,6 +1,6 @@
 ### name: Kwadwo Osarfo-Akoto
 
-# PCPARTPICKER
+# PARTPICKER
 ## Description:
 This program allows users to select computer parts for building a PC showing using a databases to store different parts and their prices. The program allows users to select parts based on their preferences and budget, and overall specifications. 
 
@@ -17,17 +17,24 @@ This program allows users to select computer parts for building a PC showing usi
 
 ## Tech Stack:
 - **Programming Language**: Python, HTML5, SQL
-- **Database**: SQLite (for storing parts and user selections)
+- **Database**: flask-SQLAlchemy (for storing parts and user selections)
 - **GUI**: flask (for web-based interface)
 - **Libraries**: 
-    - sqlite3 (for database interactions)
+    - sqlite3 
     - SQLAlchemy
     - Flask
     - login-manager (for user authentication)
+- **AI Tools**: Claude and ChatGPT (for generating part specifications and data sets)
+- The rationale for this current tech stack was inspired by a very informative video on creating web applications [here](https://www.youtube.com/watch?v=dam0GPOAvVI&t=6944s). The video provided a great foundation for understanding how to create a web application using Python and Flask, which was the main reason for choosing this tech stack.
+
 ## Interactions:
-**User Registration/Login**: Users can register and login to the application. this will add a new user to the database and allow them to save their builds. When a users is done, they can log out and return to the login screen.
+**User Registration/Login**: Users can register and login to the application. this will add a new user to the database and allow them to save their builds. When a user is done, they can log out and return to the login screen.
+
+**Delete User**: Users can delete their account, which will remove all their associated builds from the database. This is done to ensure that users can manage their accounts and data effectively.
 
 **Build CRUD**: Users can create a new build by selecting parts from the database. Users can add multiple builds to their account and even edit parts of their builds. Along with that users can delete builds they no longer want to keep. Builds give the total cost of the entire build based on msrp to give users a rough idea of the total cost of their build.
+
+**View Manufacturers**: Users can view a list of all available manufacturers at least those availabe in the database. 
 
 ### Use of AI:
 Due to the large amount of parts and specifications, Claude and ChatGPT were used ot generate the data sets to be implemented in the database. Specifically Claude and ChatGPT was used to research and generate the data for the GPU, CPU, Motherboard, RAM, Storage, Power Supply, and Case tables. This data was then used to populate the database with part information, Which otherwise would have taken extensive time to produce by hand, due to how much data was needed some of the data may not be accurate to current markets and up-to-date prices.
